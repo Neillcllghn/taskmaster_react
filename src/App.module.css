@@ -1,0 +1,73 @@
+.App {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f8f8;
+    min-height: 100vh;
+}
+
+.Main {
+    padding-top: 81px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+  
+  a {
+    color: #fff;
+    transition: color ease-in-out 0.3s;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  a:hover i {
+    background: #333;
+    color: #fff;
+    transition: color ease-in-out 0.3s;
+  }
+  
+  i {
+    color: #cfced3;
+    font-size: 1.6rem;
+    padding: 7px;
+    vertical-align: middle;
+  }
+  
+  i:hover {
+    cursor: pointer;
+    transition: color ease-in-out 0.3s;
+    color: #fff;
+  }
+
+
+  /*Might not use*/
+
+  figure {
+    text-align: center;
+    display: inline-block;
+  }
+  
+  /* scrollbar */
+  *::-webkit-scrollbar {
+    width: 5px;
+  }
+  *::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  .Content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 2px;
+    border: 1px solid #dadadf;
+  }
+  
