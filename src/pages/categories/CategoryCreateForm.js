@@ -29,8 +29,9 @@ function CategoryCreateForm() {
         formData.append('category_title', category_title);
 
         try{
-            const {data} =  await axiosReq.post('/category/', formData);
-            history.push(`/category/${data.id}`)
+            // eslint-disable-next-line
+            const { data } =  await axiosReq.post('/category/', formData);
+            history.push(`/categorieslist/`)
         } catch (err){
             console.log(err)
             if (err.response?.status !== 401){
