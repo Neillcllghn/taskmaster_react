@@ -9,6 +9,7 @@ import CategoryCreateForm from './pages/categories/CategoryCreateForm';
 import CategoryList from './pages/categories/CategoryList';
 import CategoriesList from './pages/categories/CategoriesList';
 import CategoryEditForm from './pages/categories/CategoryEditForm';
+import TaskCreateForm from './pages/tasks/TaskCreateForm';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route exact path="/category/:id" render={() => <CategoryList />} />
             <Route exact path="/category/:id/edit" render={() => <CategoryEditForm />} />
             <Route exact path="/categorieslist/" render={() => <CategoriesList message="No Results found..."/>} />
+            <Route exact path="/tasks/create" render={() => <TaskCreateForm />} />
             <Route render={() => <p>Page not found!</p>} />
         </Switch>
     </Container>
