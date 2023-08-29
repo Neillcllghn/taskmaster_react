@@ -62,17 +62,24 @@ function TaskList({message, filter=""}) {
 
         {hasLoaded ? (
         <>
-            {filteredTasks.map((task) => (
+            {tasks.length ? (
+            filteredTasks.map((task) => (
                 <TaskItem 
                 key={task.id}
                 task={task}
                 profile_id={task.profile_id}
                 profile_image={task.profile_image}
-                owner={task.owner}/>))}
+                owner={task.owner}/>))
+
+                ) : (
+                    <Container className={appStyles.Content}>
+                        <Asset message={message} />
+                    </Container>
+                )}
         </>
         ) : (
             <Container className={appStyles.Content}>
-                {message ? <Asset message={message} /> : <Asset spinner />}
+                <Asset spinner />
             </Container>
         )}
     </div>
