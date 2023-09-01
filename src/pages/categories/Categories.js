@@ -28,7 +28,7 @@ const Categories = (props) => {
     const handleDelete = async () => {
         try {
             await axiosRes.delete(`category/${id}`);
-            history.goBack("/categorieslist");
+            history.push("/categorieslist");
         } catch(err) {
             console.log(err);
         }
