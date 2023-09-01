@@ -1,103 +1,95 @@
-import React, { useEffect, useRef, useState } from "react";
-
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
-
-import styles from "../../styles/TaskCreateEditForm.module.css"
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import React, { useEffect, useState, useRef } from 'react'
+import { Alert, Button, Container, Form, Row } from 'react-bootstrap';
+import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosReq } from "../../api/axiosDefaults";
-import { Alert } from "react-bootstrap";
+import styles from "../../styles/TaskCreateEditForm.module.css"
+
+function TaskEditForm() {
+    const [errors, setErrors] = useState({});
+
+    const [taskData, setTaskData] = useState({
+        title:"",
+        category: "defaultCategoryId",
+        description:"",
+        is_urgent: false,
+        due_date:"",
+        completed: false,
+      });
+
+      const [categoryData, setCategoryData] = useState({ results: [] })
+
+      const { title, category, description, is_urgent, due_date, completed } = taskData;
+      const history = useHistory();
+      const { id } = useParams();
+    
+      const dateInputRef = useRef(null);
+
+      useEffect(() => {
+        const handleMount = async () => {
+            try {
+                const [taskResponse, categoryResponse] = await Promise.all([
+                    axiosReq.get(`/tasks/${id}`),
+                    axiosReq.get('/category/')
+                ])
+                const {title, category, description, is_urgent, due_date, completed, is_owner } = taskResponse.data;
+                const categories = categoryResponse.data.results;
+                
+                is_owner ? setTaskData({title, category, description, is_urgent, due_date, completed}) : history.push('/');
+                setCategoryData({ results: categories });
+            } catch(err) {
+                console.log(err);
+
+            };
+        };
+        handleMount();
+    }, [history, id])
 
 
-
-
-function TaskCreateForm(props) {
-
-  const [errors, setErrors] = useState({});
-
-  const [taskData, setTaskData] = useState({
-    title:"",
-    category: "defaultCategoryId",
-    description:"",
-    is_urgent: false,
-    due_date:"",
-    completed: false,
-  });
-
-  const [categoryData, setCategoryData] = useState({ results: [] })
-
-  const { title, category, description, is_urgent, due_date, completed } = taskData;
-  const history = useHistory();
-
-  const dateInputRef = useRef(null);
-
-const handleChange = (event) => {
-    const { name, value, type, checked } = event.target;
-    if (type === 'checkbox') {
+      const handleChange = (event) => {
+        const { name, value, type, checked } = event.target;
+        if (type === 'checkbox') {
+            setTaskData((prevTaskData) => ({
+                ...prevTaskData,
+                [name]: checked,
+            }));
+        } else {
         setTaskData((prevTaskData) => ({
             ...prevTaskData,
-            [name]: checked,
+            [name]: value,
         }));
-    } else {
-    setTaskData((prevTaskData) => ({
-        ...prevTaskData,
-        [name]: value,
-    }));
-    }
-};
-
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const formData = new FormData();
-    const now = new Date();
-    const PastDueDate = new Date(due_date);
-
-    if (PastDueDate < now) {
-        setErrors({ due_date: ["Cannot create tasks with past due dates"] });
-        return;
-    }
-
-
-    formData.append('title', title);
-    formData.append('category', category);
-    formData.append('description', description);
-    formData.append('is_urgent', is_urgent);
-    // Convert the due_date to the expected format
-    const formattedDueDate = new Date(due_date);
-    const year = formattedDueDate.getFullYear();
-    const month = (formattedDueDate.getMonth() + 1).toString().padStart(2, '0');
-    const day = formattedDueDate.getDate().toString().padStart(2, '0');
-
-    const formattedDate = `${year}-${month}-${day}`;
-    formData.append('due_date', formattedDate);
-    formData.append('completed', completed);
-
-    try{
-        const {data} =  await axiosReq.post('/tasks/', formData);
-        history.push(`/tasks/${data.id}`)
-    } catch (err){
-        console.log(err)
-        if (err.response?.status !== 401){
-            setErrors(err.response?.data)
         }
+    };
 
-    }
-}
+    const handleSubmit = async (event) => {
+        event.preventDefault();
 
-useEffect(() => {
-    const fetchCategories = async () => {
-        try {
-            const { data } = await axiosReq.get(`/category/`)
-            setCategoryData(data)
-        } catch(err) {
+        const formData = new FormData();
+    
+        formData.append('title', title);
+        formData.append('category', category);
+        formData.append('description', description);
+        formData.append('is_urgent', is_urgent);
+        const formattedDueDate = new Date(due_date);
+        const year = formattedDueDate.getFullYear();
+        const month = (formattedDueDate.getMonth() + 1).toString().padStart(2, '0');
+        const day = formattedDueDate.getDate().toString().padStart(2, '0');
+    
+        const formattedDate = `${year}-${month}-${day}`;
+        formData.append('due_date', formattedDate);
+        formData.append('completed', completed);
+    
+        try{
+            await axiosReq.put(`/tasks/${id}`, formData);
+            history.push(`/tasklist`)
+        } catch (err){
             console.log(err)
+            if (err.response?.status !== 401){
+                setErrors(err.response?.data)
+            }
+    
         }
     }
-    fetchCategories();
-}, []);
+    
 
   return (
     <Row className={styles.TaskFormBox}>
@@ -182,7 +174,7 @@ useEffect(() => {
 
         <Button 
          type="submit" color="success" className={styles.TaskCreateBtn}>
-            Create
+            Save
         </Button>
         <Button 
          className={styles.TaskCancelBtn} onClick={() => history.goBack()}>
@@ -194,4 +186,4 @@ useEffect(() => {
   );
 }
 
-export default TaskCreateForm;
+export default TaskEditForm

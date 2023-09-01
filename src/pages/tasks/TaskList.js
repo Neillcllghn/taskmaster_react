@@ -66,6 +66,7 @@ function TaskList({message, filter=""}) {
             filteredTasks.map((task) => (
                 <TaskItem 
                 key={task.id}
+                id={task.id}
                 task={task}
                 profile_id={task.profile_id}
                 profile_image={task.profile_image}
