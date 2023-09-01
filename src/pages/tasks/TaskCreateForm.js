@@ -13,7 +13,7 @@ import { Alert } from "react-bootstrap";
 
 
 
-function TaskCreateForm(props) {
+function TaskCreateForm() {
 
   const [errors, setErrors] = useState({});
 
