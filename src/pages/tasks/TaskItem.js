@@ -4,7 +4,7 @@ import { useCurrentUser } from '../../context/CurrentUserContext';
 import { Link } from "react-router-dom";
 import Avatar from '../../components/Avatar';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-import { axiosRes } from '../../api/axiosDefaults';
+import TaskDeleteModal from '../../components/TaskDeleteModal'; 
 
 function TaskItem({ id, task, profile_id, profile_image, owner }) {
     const currentUser = useCurrentUser();
@@ -15,14 +15,7 @@ function TaskItem({ id, task, profile_id, profile_image, owner }) {
         history.push(`/tasks/${id}/edit`);
     }
 
-    const handleDelete = async () => {
-        try {
-            await axiosRes.delete(`/tasks/${id}`);
-            history.push("tasklist/");
-        } catch(err) {
-            console.log(err);
-        }
-    };
+ 
 
   return (
     <Card>
@@ -46,9 +39,7 @@ function TaskItem({ id, task, profile_id, profile_image, owner }) {
             Edit
             </Button>
 
-            <Button className="btn btn-danger mr-2" onClick={handleDelete}>
-            Delete
-            </Button>
+            <TaskDeleteModal id={id}/>
             </span>
             </div>
             ) : (<p>You are not the owner of this Task</p>)}
