@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 import appStyles from "../../App.module.css"
 import Asset from '../../components/Assets';
 import TaskSearchBar from '../../components/TaskSearchBar';
+import SuccessMessages from '../../components/SuccessMessages';
 
 
 function TaskList({message, filter=""}) {
@@ -14,6 +15,9 @@ function TaskList({message, filter=""}) {
     const [hasLoaded, setHasLoaded] = useState(false);
     const [query, setQuery] = useState("");
     const { pathname } = useLocation();
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const successMessage = queryParams.get('success');
 
     useEffect(() => {
         const fetchTasks = async () => {
@@ -59,6 +63,10 @@ function TaskList({message, filter=""}) {
         </label>
 
         <TaskSearchBar query={query} onQueryChange={setQuery} />
+        {successMessage && (
+            <SuccessMessages />
+      )}
+
 
         {hasLoaded ? (
         <>
