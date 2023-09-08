@@ -14,6 +14,8 @@ function TaskDeleteModal({id}) {
         try {
             await axiosRes.delete(`/tasks/${id}`);
             history.push("/tasklist/");
+            setShow(false);
+            window.location.reload();
         } catch(err) {
             console.log(err);
         }
