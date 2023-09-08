@@ -11,14 +11,23 @@ function SuccessMessages() {
 
     useEffect(() => {
         const storedSuccessMessage = sessionStorage.getItem('successMessage')
-        if (storedSuccessMessage) {
-            setDisplayedSuccessMessage(storedSuccessMessage);
+        if (successMessage || storedSuccessMessage) {
+            const message = successMessage || storedSuccessMessage;
+            setDisplayedSuccessMessage(message);
             sessionStorage.removeItem('successMessage');
-            setTimeout(() => {
+            const searchParams = new URLSearchParams(location.search);
+            searchParams.delete('success');
+            const newURL = `${window.location.pathname}?${searchParams.toString()}`;
+            window.history.replaceState({}, document.title, newURL);
+            window.location.reload();
+            const timer = setTimeout(() => {
                 setDisplayedSuccessMessage('');
-              }, 1000);
+              }, 3000);
+              return () => {
+                clearTimeout(timer);
+            };
         }
-      }, [successMessage]);
+      }, [successMessage, location.search]);
 
 
       return (
