@@ -41,7 +41,6 @@ function CategoriesList({message, filter=""}) {
   return (
     <Row className='h-100'>
         <Col className='py-2 p-0 p-lg-2' lg={8}>
-            <p>List of Categories mobile</p>
 
             <i className={`fas fa-search ${styles.SearchIcon}`} />
             <Form className={styles.SearchBar}
@@ -75,9 +74,6 @@ function CategoriesList({message, filter=""}) {
                     <Asset spinner />                     
                     </Container>
             )}
-        </Col>
-        <Col className='d-none d-lg-block p-0 p-lg-2' md={4}>
-            <p>List of Categories desktop</p>
         </Col>
     </Row>
   )

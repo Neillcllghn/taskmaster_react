@@ -29,11 +29,15 @@ const Categories = (props) => {
         try {
             await axiosRes.delete(`category/${id}`);
             history.push("/categorieslist");
+            window.location.reload();
         } catch(err) {
             console.log(err);
         }
     };
 
+    if (!is_owner) {
+        return null;
+    }
 
     return (
         <Card>
