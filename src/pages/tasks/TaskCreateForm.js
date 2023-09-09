@@ -65,7 +65,6 @@ const handleChange = (event) => {
     formData.append('category', category);
     formData.append('description', description);
     formData.append('is_urgent', is_urgent);
-    // Convert the due_date to the expected format
     const formattedDueDate = new Date(due_date);
     const year = formattedDueDate.getFullYear();
     const month = (formattedDueDate.getMonth() + 1).toString().padStart(2, '0');
@@ -91,8 +90,9 @@ const handleChange = (event) => {
 useEffect(() => {
     const fetchCategories = async () => {
         try {
-            const { data } = await axiosReq.get(`/category/`)
-            setCategoryData(data)
+            const response = await axiosReq.get(`/category/`);
+            const userCategories = response.data.results.filter(categoryItem => categoryItem.is_owner);
+            setCategoryData({ results: userCategories });
         } catch(err) {
             console.log(err)
         }
