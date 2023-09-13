@@ -30,7 +30,6 @@ function TaskItem({ id, task, profile_id, profile_image, owner }) {
                 </Link>
         </Media>
             <h3 className="text-center">{task.title}</h3>
-            <p className="text-center">Owner: {task.owner}</p>
             <div className="text-center">
             <p>Description: {task.description}</p>
             <p>Urgent: {task.is_urgent ? 'Yes' : 'No'}</p>
