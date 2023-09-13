@@ -11,17 +11,27 @@ import SuccessMessages from '../../components/SuccessMessages';
 
 function TaskList({message, filter=""}) {
     const [tasks, setTasks] = useState([]);
-    const [showCompleted, setShowCompleted] = useState(true);
+    const [showCompleted, setShowCompleted] = useState(false);
     const [hasLoaded, setHasLoaded] = useState(false);
     const [query, setQuery] = useState("");
     const { pathname } = useLocation();
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const successMessage = queryParams.get('success');
+    const [showIs_Urgent, setShowIs_Urgent] = useState(false);
+    const [showNonCompleted, setShowNonCompleted] = useState(false);
 
     useEffect(() => {
         const fetchTasks = async () => {
           try {
+            let filter = '';
+            if (showIs_Urgent) {
+                filter = 'urgent';
+            } if (showCompleted) {
+                filter = 'completed';
+            } else if (showNonCompleted) {
+                filter = 'not_completed';
+            }
             const { data } = await axiosReq.get(`/tasks/?filter=${filter}&search=${query}`);
             const tasksData = data.results;
             setTasks(tasksData);
@@ -40,14 +50,14 @@ function TaskList({message, filter=""}) {
             clearTimeout(timer);
           };
     
-      }, [filter, query, pathname]);
+      }, [showCompleted, showNonCompleted, showIs_Urgent, query, pathname]);
 
       const filteredTasks = tasks.filter((task) => {
-        if (showCompleted) {
-            return true;
-        } else {
-            return !task.completed;
-        }
+        const isUrgent = showIs_Urgent ? task.is_urgent : true;
+        const isCompleted = showCompleted ? task.completed : true;
+        const isNonCompleted = showNonCompleted ? !task.completed : true;
+
+        return isUrgent && isCompleted && isNonCompleted;
       })
 
   return (
@@ -58,9 +68,35 @@ function TaskList({message, filter=""}) {
         <input
           type="checkbox"
           checked={showCompleted}
-          onChange={() => setShowCompleted(!showCompleted)}
+          onChange={() => {
+            setShowCompleted(!showCompleted);
+            setShowNonCompleted(false);
+          }}
         />
         </label>
+
+        <label>
+        Show Non-Completed Tasks:
+        <input
+          type="checkbox"
+          checked={showNonCompleted}
+          onChange={() => {
+            setShowNonCompleted(!showNonCompleted);
+            setShowCompleted(false);
+          }}
+        />
+        </label>
+
+        <label>
+            Show Urgent Tasks:
+            <input
+                type="checkbox"
+                checked={showIs_Urgent}
+                onChange={() => {
+                    setShowIs_Urgent(!showIs_Urgent);
+                  }}
+            />
+            </label>
 
         <TaskSearchBar query={query} onQueryChange={setQuery} />
         {successMessage && (
