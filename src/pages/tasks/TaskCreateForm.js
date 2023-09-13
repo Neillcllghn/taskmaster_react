@@ -171,16 +171,6 @@ useEffect(() => {
         {errors.due_date?.map((message, idx) =>
             <Alert variant="warning" key={idx}>{message}</Alert>
         )}
-        <Form.Group>
-            <Form.Check
-            label="Completed"
-            type="checkbox" 
-            name ="completed"
-            value={completed}
-            onChange={handleChange}
-            />
-        </Form.Group>
-
         <Button 
          type="submit" color="success" className={styles.TaskCreateBtn}>
             Create
