@@ -171,7 +171,8 @@ function TaskEditForm() {
             label="Completed"
             type="checkbox" 
             name ="completed"
-            value={completed}
+            value="true"
+            checked={completed}
             onChange={handleChange}
             />
         </Form.Group>
