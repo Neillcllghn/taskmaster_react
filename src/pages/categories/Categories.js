@@ -3,7 +3,6 @@ import { Card, Media } from 'react-bootstrap';
 import { useCurrentUser } from '../../context/CurrentUserContext';
 import { Link, useHistory } from "react-router-dom";
 import Avatar from '../../components/Avatar';
-import { axiosRes } from "../../api/axiosDefaults";
 import { CategoryMoreDropdown } from '../../components/CategoryMoreDropdown';
 
 const Categories = (props) => {
@@ -25,16 +24,6 @@ const Categories = (props) => {
         history.push(`/category/${id}/edit`)
     }
 
-    const handleDelete = async () => {
-        try {
-            await axiosRes.delete(`category/${id}`);
-            history.push("/categorieslist");
-            window.location.reload();
-        } catch(err) {
-            console.log(err);
-        }
-    };
-
     if (!is_owner) {
         return null;
     }
@@ -51,7 +40,7 @@ const Categories = (props) => {
                         <span>{created_at}</span>
                         {is_owner && categoryList } <CategoryMoreDropdown 
                         handleEdit={handleEdit}
-                        handleDelete={handleDelete}/>
+                        id={id}/>
                     </div>
                 </Media>
                 {category_title && <Card.Title className='text-center'>{category_title}</Card.Title>}

@@ -1,7 +1,7 @@
 import React from "react";
 import Dropdown from 'react-bootstrap/Dropdown'
 import styles from "../styles/CategoryMoreDropdown.module.css"
-
+import CategoryDeleteModal from "./CategoryDeleteModal";
 
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
     <i
@@ -14,7 +14,7 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
     />
   ));
 
-  export const CategoryMoreDropdown = ({handleEdit, handleDelete}) => {
+  export const CategoryMoreDropdown = ({handleEdit, id}) => {
     return (
         <Dropdown className="ml-auto" drop="left">
       <Dropdown.Toggle as={ThreeDots} />
@@ -27,10 +27,9 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
             <i className="fas fa-edit" />
         </Dropdown.Item>
         <Dropdown.Item className={styles.DropdownItem}
-        onClick={handleDelete}
         aria-label="delete"
         >
-            <i className="fas fa-trash-alt" />
+            <CategoryDeleteModal id={id}/>
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
