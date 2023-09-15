@@ -31,10 +31,10 @@ function TaskItem({ id, task, profile_id, profile_image, owner }) {
         </Media>
             <h3 className="text-center">{task.title}</h3>
             <div className="text-center">
-            <p>Description: {task.description}</p>
-            <p>Urgent: {task.is_urgent ? 'Yes' : 'No'}</p>
-            <p>Due Date: {task.due_date}</p>
-            <p>Completed: {task.completed ? 'Yes' : 'No'}</p>
+            <p><span style={{ fontWeight: 'bold' }}>Description:</span> - {task.description}</p>
+            <p><span style={{ fontWeight: 'bold' }}>Urgent:</span> - {task.is_urgent ? 'Yes' : 'No'}</p>
+            <p><span style={{ fontWeight: 'bold' }}>Due Date:</span> - {task.due_date}</p>
+            <p><span style={{ fontWeight: 'bold' }}>Completed:</span> - {task.completed ? 'Yes' : 'No'}</p>
             <span>
             <Button className="btn btn-info mr-2" onClick={handleEdit}>
             Edit
