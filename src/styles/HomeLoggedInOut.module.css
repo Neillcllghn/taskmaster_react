@@ -1,0 +1,4 @@
+.Row {
+    height: calc(56vh - 6px);
+    margin: auto;
+  }

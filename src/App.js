@@ -15,6 +15,7 @@ import TaskEditForm from './pages/tasks/TaskEditForm';
 import ProfilePage from './pages/profiles/ProfilePage';
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import UsernameForm from "./pages/profiles/UsernameForm";
+import HomePage from './pages/main/HomePage';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
       <NavBar />
       <Container className={styles.Main}>
         <Switch>
-            <Route exact path="/" render={() => <h1>Home Page</h1>} />
+            <Route exact path="/" render={() => <HomePage/>} />
             <Route exact path="/login" render={() => <LoginForm />} />
             <Route exact path="/signup" render={() => <SignUpForm />} />
             <Route exact path="/category/create" render={() => <CategoryCreateForm />} />
