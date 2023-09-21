@@ -4,7 +4,12 @@ import { useCurrentUser } from '../../context/CurrentUserContext';
 import { Link } from "react-router-dom";
 import Avatar from '../../components/Avatar';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-import TaskDeleteModal from '../../components/TaskDeleteModal'; 
+import TaskDeleteModal from '../../components/TaskDeleteModal';
+
+function formatDate(dateString) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  }
 
 function TaskItem({ id, task, profile_id, profile_image, owner }) {
     const currentUser = useCurrentUser();
@@ -33,7 +38,7 @@ function TaskItem({ id, task, profile_id, profile_image, owner }) {
             <div className="text-center">
             <p><span style={{ fontWeight: 'bold' }}>Description:</span> - {task.description}</p>
             <p><span style={{ fontWeight: 'bold' }}>Urgent:</span> - {task.is_urgent ? 'Yes' : 'No'}</p>
-            <p><span style={{ fontWeight: 'bold' }}>Due Date:</span> - {task.due_date}</p>
+            <p><span style={{ fontWeight: 'bold' }}>Due Date:</span> - {formatDate(task.due_date)}</p>
             <p><span style={{ fontWeight: 'bold' }}>Completed:</span> - {task.completed ? 'Yes' : 'No'}</p>
             <span>
             <Button className="btn btn-info mr-2" onClick={handleEdit}>
