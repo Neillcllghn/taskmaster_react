@@ -1,7 +1,8 @@
 .TaskFormBox {
     min-width: 100%;
-    height: 80vh;
+    height: calc(92vh - 60px);
     border: 2px solid #008B8B;
+    background-color: #ffffff;
     margin: 0vw;
     padding: 5vw ;
     position:relative; 
@@ -17,6 +18,17 @@
     position:absolute;
 
 }
+
+.Header {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #008B8B;
+  }
 
 .TaskCancelBtn{
     margin: 1rem 0 1rem 0;
@@ -39,4 +51,8 @@
 .TaskCreateBtn:hover {
     background-color: #333;
     transition: 1s background ease;
+}
+
+.TaskFormControl {
+    background-color: linen;
 }

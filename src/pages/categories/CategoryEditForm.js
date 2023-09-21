@@ -62,12 +62,13 @@ function CategoryEditForm() {
         <Container className='col-md-6 col-sma-10 mx-auto p-0'>
         <Form onSubmit={handleSubmit}>
             <Form.Group>
-            <Form.Label>Edit a Category</Form.Label>
+            <Form.Label className={styles.Header}>Edit a Category</Form.Label>
             <Form.Control
             type="text"
             name ="category_title"
             value={category_title}
             onChange={handleChange}
+            className={styles.CategoryFormControl}
             />
             </Form.Group>
             {errors.category_title?.map((message, idx) =>

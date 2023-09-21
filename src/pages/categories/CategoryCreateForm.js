@@ -54,6 +54,7 @@ function CategoryCreateForm() {
             name ="category_title"
             value={category_title}
             onChange={handleChange}
+            className={styles.CategoryFormControl}
             />
             </Form.Group>
             {errors.category_title?.map((message, idx) =>

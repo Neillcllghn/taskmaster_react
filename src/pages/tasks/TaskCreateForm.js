@@ -105,25 +105,27 @@ useEffect(() => {
         <Container className='col-md-6 col-sma-10 mx-auto p-0'>
     <Form onSubmit={handleSubmit}>
         <Form.Group>
-            <Form.Label>Task Title</Form.Label>
+            <Form.Label className={styles.Header}>Task Title</Form.Label>
             <Form.Control
             type="text" 
             placeholder="Enter Task Title" 
             name ="title"
             value={title}
             onChange={handleChange}
+            className={styles.TaskFormControl}
             />
         </Form.Group>
         {errors.title?.map((message, idx) =>
             <Alert variant="warning" key={idx}>{message}</Alert>
         )}
         <Form.Group>
-            <Form.Label>Category</Form.Label>
+            <Form.Label className={styles.Header}>Categories</Form.Label>
             <Form.Control
             as="select"
             name ="category"
             value={category}
-            onChange={handleChange}>
+            onChange={handleChange}
+            className={styles.TaskFormControl}>
             <option value="">--Please choose an option--</option>
                 {categoryData.results.map((categoryItem) => (
                 <option key={categoryItem.id} value={categoryItem.id}>
@@ -136,13 +138,14 @@ useEffect(() => {
             <Alert variant="warning" key={idx}>{message}</Alert>
         )}
         <Form.Group>
-            <Form.Label>Task Description</Form.Label>
+            <Form.Label className={styles.Header}>Task Description</Form.Label>
             <Form.Control
-            type="text" 
+            as="textarea" 
             placeholder="Enter Task description" 
             name ="description"
             value={description}
             onChange={handleChange}
+            className={styles.TaskFormControl}
             />
         </Form.Group>
         {errors.description?.map((message, idx) =>
@@ -150,7 +153,7 @@ useEffect(() => {
         )}
         <Form.Group>
             <Form.Check
-            label="Urgent"
+            label="Mark as Urgent"
             type="checkbox" 
             name ="is_urgent"
             value="true"
@@ -159,13 +162,14 @@ useEffect(() => {
             />
         </Form.Group>
         <Form.Group>
-            <Form.Label>Task Due Date</Form.Label>
+            <Form.Label className={styles.Header}>Task Due Date</Form.Label>
             <Form.Control
             type="date" 
             name ="due_date"
             value={due_date}
             ref= {dateInputRef}
             onChange={handleChange}
+            className={styles.TaskFormControl}
             />
         </Form.Group>
         {errors.due_date?.map((message, idx) =>
