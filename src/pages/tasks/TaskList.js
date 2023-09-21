@@ -7,6 +7,7 @@ import appStyles from "../../App.module.css"
 import Asset from '../../components/Assets';
 import TaskSearchBar from '../../components/TaskSearchBar';
 import SuccessMessages from '../../components/SuccessMessages';
+import styles from '../../styles/TaskList.module.css'
 
 
 function TaskList({message, filter=""}) {
@@ -62,7 +63,7 @@ function TaskList({message, filter=""}) {
 
   return (
     <div>
-        <h1>Task List</h1>
+        <div className={styles.CheckboxWrapper}>
         <label>
         Show Completed Tasks:
         <input
@@ -97,6 +98,7 @@ function TaskList({message, filter=""}) {
                   }}
             />
             </label>
+            </div>
 
         <TaskSearchBar query={query} onQueryChange={setQuery} />
         {successMessage && (

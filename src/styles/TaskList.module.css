@@ -16,3 +16,31 @@
     cursor: default;
     color: #cfced3;
   }
+
+  .CheckboxWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+  
+  .CheckboxWrapper label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 0.5em;
+  }
+  
+  .CheckboxWrapper input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.6em;
+    height: 1.6em;
+    border-radius: 0.15em;
+    margin-right: 0.5em;
+    border: 0.15em solid #007a7e;
+    outline: none;
+  }
+
+  .CheckboxWrapper input[type="checkbox"]:checked {
+    background-color: #007a7e;
+  }
