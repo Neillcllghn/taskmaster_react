@@ -85,15 +85,16 @@ const NavBar = () => {
 
 
   return (
-    <Navbar expanded={expanded} className={styles.NavBar} expand="md" fixed="top">
+    <Navbar expanded={expanded} className={styles.NavBar} expand="lg" fixed="top">
         <Container>
             <NavLink to="/">
-            <Navbar.Brand>TASKMASTER</Navbar.Brand>
+            <Navbar.Brand className={styles.NavBarBrand}>TASKMASTER</Navbar.Brand>
             </NavLink>
             <Navbar.Toggle
             ref={ref}
             onClick={() => setExpanded(!expanded)}
-            aria-controls="basic-navbar-nav" />
+            aria-controls="basic-navbar-nav" 
+            className={styles.NavBarToggle}/>
             <Navbar.Collapse id="basic-navbar-nav">
             {currentUser && createTaskIcon}
             {currentUser && createCategoryIcon}
