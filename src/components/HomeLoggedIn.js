@@ -11,13 +11,13 @@ const HomeLoggedIn = ({ userProfile, incompleteTaskCount, urgentTaskCount }) => 
     <Col className="my-auto p-0 p-md-500" lg={6}>
         <Container className={`${appStyles.Content} p-4 `}>
             <div>
-                <h1>Welcome back! {userProfile?.owner}</h1>
+                <h1>Welcome {userProfile?.owner}</h1>
             </div>
         </Container>
     </Col>
     <Col className="my-auto p-0 p-md-2" lg={6}>
         <Container className={`${appStyles.Content} p-4 `}>
-            <h1>Number of Tasks outstanding!</h1>
+            <h2>Number of Tasks outstanding!</h2>
         <p>You have <span style={{ fontWeight: 'bold' }}>{incompleteTaskCount}</span> task(s) not completed.</p>
         <p>You have <span style={{ fontWeight: 'bold' }}>{`${incompleteTaskCount}` ? `${urgentTaskCount}` : "0"}</span> urgent task(s).</p>
         </Container>

@@ -55,10 +55,14 @@ const handleChange = (event) => {
     const now = new Date();
     const PastDueDate = new Date(due_date);
 
-    if (PastDueDate < now) {
-        setErrors({ due_date: ["Cannot create tasks with past due dates"] });
+    if (!due_date || PastDueDate < now) {
+        if (!due_date) {
+          setErrors({ due_date: ["You must select a Date"] });
+        } else {
+          setErrors({ due_date: ["Cannot create tasks with past due dates"] });
+        }
         return;
-    }
+      }
 
 
     formData.append('title', title);
@@ -134,8 +138,8 @@ useEffect(() => {
         ))}
             </Form.Control>
             </Form.Group>
-        {errors.category?.map((message, idx) =>
-            <Alert variant="warning" key={idx}>{message}</Alert>
+        {errors.category?.map((idx) =>
+            <Alert variant="warning" key={idx}><span>You must select a Category</span></Alert>
         )}
         <Form.Group>
             <Form.Label className={styles.Header}>Task Description</Form.Label>

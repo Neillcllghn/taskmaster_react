@@ -63,6 +63,11 @@ function TaskEditForm() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        if (!category) {
+            setErrors({ category: ["You must select a Category"] });
+            return;
+          }
+
         const formData = new FormData();
     
         formData.append('title', title);
@@ -129,8 +134,8 @@ function TaskEditForm() {
         ))}
             </Form.Control>
             </Form.Group>
-        {errors.category?.map((message, idx) =>
-            <Alert variant="warning" key={idx}>{message}</Alert>
+        {errors.category?.map((idx) =>
+            <Alert variant="warning" key={idx}><span>You must select a Category</span></Alert>
         )}
         <Form.Group>
         <Form.Label className={styles.Header}>Task Description</Form.Label>
