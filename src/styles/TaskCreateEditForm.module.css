@@ -1,4 +1,8 @@
 .TaskFormBox {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
     min-width: 100%;
     height: calc(92vh - 60px);
     border: 2px solid #008B8B;
@@ -6,6 +10,12 @@
     margin: 0vw;
     padding: 5vw ;
     position:relative; 
+}
+
+.ErrorMessagesContainer {
+    margin-top: auto;
+    max-height: 100px;
+    overflow-y: auto;
 }
 
 .TaskCancelBtn, .TaskCreateBtn{

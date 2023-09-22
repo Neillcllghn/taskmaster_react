@@ -63,8 +63,26 @@ function TaskEditForm() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        if (!title) {
+            setErrors({ title: ["This cannot be left blank"] });
+            return;
+          }
+
+        
+        if (!due_date) {
+              setErrors({ due_date: ["You must select a Date"] });
+              return;
+            }
+          
+
         if (!category) {
             setErrors({ category: ["You must select a Category"] });
+            return;
+          }
+
+
+        if (!description) {
+            setErrors({ description: ["This cannot be left blank"] });
             return;
           }
 
@@ -115,9 +133,11 @@ function TaskEditForm() {
             className={styles.TaskFormControl}
             />
         </Form.Group>
+        <div className={styles.ErrorMessagesContainer}>
         {errors.title?.map((message, idx) =>
             <Alert variant="warning" key={idx}>{message}</Alert>
         )}
+        </div>
         <Form.Group>
         <Form.Label className={styles.Header}>Categories</Form.Label>
             <Form.Control
@@ -134,9 +154,11 @@ function TaskEditForm() {
         ))}
             </Form.Control>
             </Form.Group>
+            <div className={styles.ErrorMessagesContainer}>
         {errors.category?.map((idx) =>
             <Alert variant="warning" key={idx}><span>You must select a Category</span></Alert>
         )}
+        </div>
         <Form.Group>
         <Form.Label className={styles.Header}>Task Description</Form.Label>
             <Form.Control
@@ -148,9 +170,11 @@ function TaskEditForm() {
             className={styles.TaskFormControl}
             />
         </Form.Group>
+        <div className={styles.ErrorMessagesContainer}>
         {errors.description?.map((message, idx) =>
             <Alert variant="warning" key={idx}>{message}</Alert>
         )}
+        </div>
         <Form.Group>
             <Form.Check
             label="Mark as Urgent"
@@ -172,9 +196,11 @@ function TaskEditForm() {
             className={styles.TaskFormControl}
             />
         </Form.Group>
+        <div className={styles.ErrorMessagesContainer}>
         {errors.due_date?.map((message, idx) =>
             <Alert variant="warning" key={idx}>{message}</Alert>
         )}
+        </div>
         <Form.Group>
             <Form.Check
             label="Mark as Completed"
