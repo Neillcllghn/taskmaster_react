@@ -40,11 +40,6 @@ function UserPasswordForm({onCancel}) {
           }
         }, [currentUser, history, id]);
 
-    const handleCancel = () => {
-        if(onCancel) {
-            onCancel();
-        }
-    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -60,13 +55,6 @@ function UserPasswordForm({onCancel}) {
 
   return (
     <Row>
-        <Button
-            className={`${btnStyles.Button} ${btnStyles.Blue}`}
-            onClick={handleCancel}
-          >
-            Close Form
-          </Button>
-
       <Col className="py-2 mx-auto text-center" md={6}>
         <Container className={appStyles.Content}>
           <Form onSubmit={handleSubmit}>

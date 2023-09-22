@@ -29,12 +29,6 @@ function ProfileEditForm({ onCancel }) {
     const { name, content, image} = userProfileData;
     const [errors, setErrors] = useState({});
 
-    const handleCancel = () => {
-        if(onCancel) {
-            onCancel();
-        }
-    }
-
     useEffect(() => {
         const handleMount = async () => {
             if (currentUser?.profile_id?.toString() === id) {
@@ -111,12 +105,6 @@ function ProfileEditForm({ onCancel }) {
     
   return (
     <Form onSubmit={handleSubmit}>
-        <Button
-            className={`${btnStyles.Button} ${btnStyles.Blue}`}
-            onClick={handleCancel}
-          >
-            Close Form
-          </Button>
       <Row>
         <Col className="py-2 p-0 p-md-2 text-center" md={7} lg={6}>
           <Container className={appStyles.Content}>
