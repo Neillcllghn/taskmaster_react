@@ -11,7 +11,7 @@ const HomeLoggedIn = ({ userProfile, incompleteTaskCount, urgentTaskCount }) => 
     <Col className="my-auto p-0 p-md-500" lg={6}>
         <Container className={`${appStyles.Content} p-4 `}>
             <div>
-                <h1>Welcome {userProfile?.owner}</h1>
+                <h1>Hello, {userProfile?.owner}</h1>
             </div>
         </Container>
     </Col>
