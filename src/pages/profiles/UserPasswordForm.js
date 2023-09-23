@@ -11,6 +11,7 @@ import appStyles from "../../App.module.css";
 import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useCurrentUser } from '../../context/CurrentUserContext';
 import { axiosRes } from '../../api/axiosDefaults';
+import styles from '../../styles/UsernamePasswordForm.module.css'
 
 
 function UserPasswordForm() {
@@ -90,7 +91,7 @@ function UserPasswordForm() {
             ))}
             <Button
               type="submit"
-              className={`${btnStyles.Button} ${btnStyles.Blue}`}
+              className={`${btnStyles.Button} ${btnStyles.Blue} ${styles.SaveBtn}`}
             >
               save
             </Button>

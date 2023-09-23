@@ -11,6 +11,7 @@ import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min
 import { axiosReq } from '../../api/axiosDefaults';
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import styles from "../../styles/ProfilePage.module.css";
 
 
 function ProfileEditForm() {
@@ -97,7 +98,7 @@ function ProfileEditForm() {
               {message}
             </Alert>
           ))}
-          <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit" onClick={handleSubmit}>
+          <Button className={`${btnStyles.Button} ${btnStyles.Blue} ${styles.SaveBtn}`} type="submit" onClick={handleSubmit}>
             save
           </Button>
         </>
@@ -141,7 +142,7 @@ function ProfileEditForm() {
                   }
                 }}
               />
-            <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+            <Button className={`${btnStyles.Button} ${btnStyles.Blue} ${styles.SaveBtn}`} type="submit">
                 save
             </Button>
             </Form.Group>
