@@ -12,73 +12,41 @@ const HomePage = () => {
     const [incompleteTaskCount, setIncompleteTaskCount] = useState(0);
     const [urgentTaskCount, setUrgentTaskCount] = useState(0);
 
-    const [hasLoaded, setHasLoaded] = useState(false);
-
-    const [incompleteLoaded, setIncompleteLoaded] = useState(false);
-    const [urgentLoaded, setUrgentLoaded] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        const fetchHomeIncomplete = async () => {
-            axios
-              .get('/incomplete-task-count/')
-              .then((response) => {
-                setIncompleteTaskCount(response.data.incomplete_task_count);
-                setIncompleteLoaded(true); 
-              })
-              .catch((error) => {
-                console.error('Error fetching incomplete task count:', error);
-              });
-            };
-            const fetchHomeUrgent = async () => {
-            axios
-              .get('/urgent-task-count/')
-              .then((response) => {
-                setUrgentTaskCount(response.data.urgent_task_count);
-                setUrgentLoaded(true); 
-              })
-              .catch((error) => {
-                console.error('Error fetching urgent task count:', error);
-              });
-            };
-    
-            setHasLoaded(false);
-            const timer = setTimeout(() => {
-                fetchHomeIncomplete();
-                fetchHomeUrgent();
-              }, 500);
-          
-              return () => {
-                clearTimeout(timer);
-              };
-      }, []);
+        const fetchHomeData = async () => {
+            setIsLoading(true);
+            try {
+                const [incompleteResponse, urgentResponse] = await Promise.all([
+                    axios.get('/incomplete-task-count/'),
+                    axios.get('/urgent-task-count/')
+                ]);
+                setIncompleteTaskCount(incompleteResponse.data.incomplete_task_count);
+                setUrgentTaskCount(urgentResponse.data.urgent_task_count);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            } finally {
+                setIsLoading(false);
+            }
+        };
 
-      useEffect(() => {
-        if (incompleteLoaded && urgentLoaded) {
-            setHasLoaded(true);
+        if (currentUser) {
+            fetchHomeData();
+        } else {
+            setIsLoading(false);
         }
-    }, [incompleteLoaded, urgentLoaded]);
-    
-    
+    }, [currentUser]);
 
-  return (
-    <div>
-       {hasLoaded ? (
-        !currentUser ? (
-          <HomeLoggedOut />
-        ) : userProfile ? (
-          <HomeLoggedIn
-            userProfile={userProfile}
-            incompleteTaskCount={incompleteTaskCount}
-            urgentTaskCount={urgentTaskCount}
-          />
-        ) : (
-          <p>Loading...</p>
-        )
-      ) : (
-        <Asset spinner /> // Moved the spinner inside the condition
-      )}
-    </div>
-  )
+    return (
+        <div>
+           {isLoading ? (
+                <Asset spinner />
+            ) : (
+                currentUser ? userProfile ? <HomeLoggedIn userProfile={userProfile} incompleteTaskCount={incompleteTaskCount} urgentTaskCount={urgentTaskCount} /> : <p>Loading...</p> : <HomeLoggedOut />
+            )}
+        </div>
+    );
 }
 
 export default HomePage
