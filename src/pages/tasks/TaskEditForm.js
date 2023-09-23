@@ -43,7 +43,7 @@ function TaskEditForm() {
                 is_owner ? setTaskData({title, category, description, is_urgent, due_date, completed}) : history.push('/');
                 setCategoryData({ results: categories });
             } catch(err) {
-                console.log(err);
+                // console.log(err);
 
             };
         };
@@ -115,7 +115,7 @@ function TaskEditForm() {
             sessionStorage.setItem('successMessage', successMessage);
             history.push(`/tasklist/?${searchParams.toString()}`)
         } catch (err){
-            console.log(err)
+            // console.log(err)
             if (err.response?.status !== 401){
                 setErrors(err.response?.data)
             }

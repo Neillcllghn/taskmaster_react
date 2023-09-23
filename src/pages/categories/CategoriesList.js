@@ -26,7 +26,7 @@ function CategoriesList({message, filter=""}) {
                 setCategory(data)
                 setHasLoaded(true)
             } catch(err) {
-                console.log(err)
+                // console.log(err)
             }
         }
 

@@ -39,7 +39,7 @@ function ProfileEditForm() {
                     setUserProfileData({name, content, image});
                 }
                 catch (err) {
-                    console.log(err);
+                    // console.log(err);
                     history.push("/");
                   }
             } else {
@@ -75,7 +75,7 @@ function ProfileEditForm() {
             profile_image: data.image,
           }));
         } catch (err) {
-          console.log(err);
+        //   console.log(err);
           setErrors(err.response?.data);
         }
       };

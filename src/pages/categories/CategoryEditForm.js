@@ -30,7 +30,7 @@ function CategoryEditForm() {
                 
                 is_owner ? setCategoryData({category_title}) : history.push('/');
             } catch(err) {
-                console.log(err);
+                // console.log(err);
 
             };
         };
@@ -54,7 +54,7 @@ function CategoryEditForm() {
             await axiosReq.put(`/category/${id}/`, formData);
             history.push(`/categorieslist/`)
         } catch (err){
-            console.log(err)
+            // console.log(err)
             if (err.response?.status !== 401){
                 setErrors(err.response?.data)
             }

@@ -20,9 +20,8 @@ function CategoryList() {
                     axiosReq.get(`/category/${id}`)
                 ])
                 setCategory({results: [category]})
-                console.log(category)
             } catch(err) {
-                console.log(err)
+                // console.log(err)
             }
         };
         handleMount();

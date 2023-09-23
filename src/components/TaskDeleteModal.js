@@ -18,7 +18,7 @@ function TaskDeleteModal({id}) {
             setShow(false);
             window.location.reload();
         } catch(err) {
-            console.log(err);
+            // console.log(err);
         }
     };
 

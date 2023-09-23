@@ -19,7 +19,7 @@ export const UserProfileProvider = ({ children }) => {
         setUserProfile(data);
         }
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
       fetchUserProfile();

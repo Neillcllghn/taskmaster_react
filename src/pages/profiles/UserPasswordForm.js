@@ -49,7 +49,7 @@ function UserPasswordForm() {
             setSuccessMessage("Password updated Successfully");
             setErrors({});
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             setErrors(err.response?.data);
           }
     }

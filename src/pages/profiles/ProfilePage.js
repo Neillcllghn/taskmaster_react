@@ -35,7 +35,7 @@ function ProfilePage() {
                 setUserProfile(userProfile);
                 setHasLoaded(true);
             } catch(err){
-                console.log("Fetching failed:", err)
+                // console.log("Fetching failed:", err)
             }
         }
         fetchData();

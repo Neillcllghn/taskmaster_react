@@ -18,7 +18,7 @@ function CategoryDeleteModal({ id }) {
             handleClose();
             window.location.reload();
         } catch(err) {
-            console.log(err);
+            // console.log(err);
         }
     };
   return (
