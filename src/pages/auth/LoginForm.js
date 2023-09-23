@@ -11,6 +11,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import axios from "axios";
 import { useSetCurrentUser } from "../../context/CurrentUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
+import { setTokenTimestamp } from "../../utils/utils";
 
 function LoginForm() {
     const setCurrentUser = useSetCurrentUser();
@@ -32,6 +33,7 @@ function LoginForm() {
         try {
           const {data} = await axios.post("/dj-rest-auth/login/", loginData);
           setCurrentUser(data.user)
+          setTokenTimestamp(data);
           history.goBack();
         } catch (err) {
           setErrors(err.response?.data);
