@@ -12,9 +12,11 @@ import { axiosReq } from '../../api/axiosDefaults';
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/ProfilePage.module.css";
+import { useRedirect } from '../../hooks/useRedirect';
 
 
 function ProfileEditForm() {
+    useRedirect('loggedOut')
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
     const {id} = useParams();

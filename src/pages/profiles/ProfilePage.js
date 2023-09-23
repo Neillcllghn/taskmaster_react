@@ -17,8 +17,10 @@ import Image from "react-bootstrap/Image";
 import ProfileEditForm from "./ProfileEditForm";
 import UsernameForm from "./UsernameForm";
 import UserPasswordForm from "./UserPasswordForm";
+import { useRedirect } from '../../hooks/useRedirect';
 
 function ProfilePage() {
+    useRedirect('loggedOut')
     const [hasLoaded, setHasLoaded] = useState(false);
     const {id} = useParams();
     const { setUserProfile } = useUserProfile();

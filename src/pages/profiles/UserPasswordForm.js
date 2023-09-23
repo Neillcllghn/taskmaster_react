@@ -12,9 +12,11 @@ import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min
 import { useCurrentUser } from '../../context/CurrentUserContext';
 import { axiosRes } from '../../api/axiosDefaults';
 import styles from '../../styles/UsernamePasswordForm.module.css'
+import { useRedirect } from '../../hooks/useRedirect';
 
 
 function UserPasswordForm() {
+    useRedirect('loggedOut')
     const history = useHistory();
     const {id} = useParams();
     const currentUser = useCurrentUser();
