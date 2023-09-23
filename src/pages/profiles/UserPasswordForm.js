@@ -13,7 +13,7 @@ import { useCurrentUser } from '../../context/CurrentUserContext';
 import { axiosRes } from '../../api/axiosDefaults';
 
 
-function UserPasswordForm({onCancel}) {
+function UserPasswordForm() {
     const history = useHistory();
     const {id} = useParams();
     const currentUser = useCurrentUser();

@@ -14,7 +14,7 @@ import { useCurrentUser, useSetCurrentUser } from '../../context/CurrentUserCont
 import { axiosRes } from '../../api/axiosDefaults';
 
 
-function UsernameForm({ onCancel }) {
+function UsernameForm() {
     const [username, setUsername] = useState("");
     const [errors, setErrors] = useState({});
     const history = useHistory();

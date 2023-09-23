@@ -13,7 +13,7 @@ import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
 
-function ProfileEditForm({ onCancel }) {
+function ProfileEditForm() {
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
     const {id} = useParams();
