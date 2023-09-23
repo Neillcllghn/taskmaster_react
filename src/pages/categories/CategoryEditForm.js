@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -8,15 +8,15 @@ import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from '../../hooks/useRedirect';
 
-import styles from "../../styles/CategoryCreateEditForm.module.css"
+import styles from "../../styles/CategoryCreateEditForm.module.css";
 
 function CategoryEditForm() {
-    useRedirect('loggedOut')
+    useRedirect('loggedOut');
     const [errors, setErrors] = useState({});
 
     const [categoryData, setCategoryData] = useState({
         category_title: "",
-    })
+    });
 
     const { category_title } = categoryData;
     const history = useHistory();
@@ -25,7 +25,7 @@ function CategoryEditForm() {
     useEffect(() => {
         const handleMount = async () => {
             try {
-                const {data} = await axiosReq.get(`/category/${id}`)
+                const {data} = await axiosReq.get(`/category/${id}`);
                 const {category_title, is_owner} = data;
                 
                 is_owner ? setCategoryData({category_title}) : history.push('/');
@@ -35,7 +35,7 @@ function CategoryEditForm() {
             };
         };
         handleMount();
-    }, [history, id])
+    }, [history, id]);
 
     const handleChange = (event) => {
         setCategoryData({
@@ -52,15 +52,15 @@ function CategoryEditForm() {
 
         try{
             await axiosReq.put(`/category/${id}/`, formData);
-            history.push(`/categorieslist/`)
+            history.push(`/categorieslist/`);
         } catch (err){
             // console.log(err)
             if (err.response?.status !== 401){
-                setErrors(err.response?.data)
+                setErrors(err.response?.data);
             }
 
         }
-    }
+    };
 
 
   return (
@@ -94,4 +94,4 @@ function CategoryEditForm() {
   )
 }
 
-export default CategoryEditForm
+export default CategoryEditForm;

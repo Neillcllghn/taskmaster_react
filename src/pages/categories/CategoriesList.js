@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -6,10 +6,10 @@ import Form from 'react-bootstrap/Form';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosReq } from '../../api/axiosDefaults';
 
-import appStyles from "../../App.module.css"
+import appStyles from "../../App.module.css";
 import Asset from '../../components/Assets';
 import Categories from './Categories';
-import styles from '../../styles/CategoriesList.module.css'
+import styles from '../../styles/CategoriesList.module.css';
 
 
 
@@ -22,15 +22,15 @@ function CategoriesList({message, filter=""}) {
     useEffect(() => {
         const fetchCategory = async () => {
             try {
-                const {data} = await axiosReq.get(`/category/?filter=${filter}&search=${query}`)
-                setCategory(data)
-                setHasLoaded(true)
+                const {data} = await axiosReq.get(`/category/?filter=${filter}&search=${query}`);
+                setCategory(data);
+                setHasLoaded(true);
             } catch(err) {
-                // console.log(err)
+                // console.log(err);
             }
-        }
+        };
 
-        setHasLoaded(false)
+        setHasLoaded(false);
         const timer = setTimeout(() => {
             fetchCategory();
           }, 500);
@@ -39,7 +39,7 @@ function CategoriesList({message, filter=""}) {
             clearTimeout(timer);
           };
 
-    }, [filter, query, pathname])
+    }, [filter, query, pathname]);
 
   return (
     <Row className='h-100'>

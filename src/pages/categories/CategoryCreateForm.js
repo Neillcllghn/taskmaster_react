@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -8,15 +8,15 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from '../../hooks/useRedirect';
 
-import styles from "../../styles/CategoryCreateEditForm.module.css"
+import styles from "../../styles/CategoryCreateEditForm.module.css";
 
 function CategoryCreateForm() {
-    useRedirect('loggedOut')
+    useRedirect('loggedOut');
     const [errors, setErrors] = useState({});
 
     const [categoryData, setCategoryData] = useState({
         category_title: "",
-    })
+    });
 
     const { category_title } = categoryData;
     const history = useHistory();
@@ -37,15 +37,15 @@ function CategoryCreateForm() {
         try{
             // eslint-disable-next-line
             const { data } =  await axiosReq.post('/category/', formData);
-            history.push(`/categorieslist/`)
+            history.push(`/categorieslist/`);
         } catch (err){
             // console.log(err)
             if (err.response?.status !== 401){
-                setErrors(err.response?.data)
+                setErrors(err.response?.data);
             }
 
         }
-    }
+    };
 
 
   return (
@@ -80,4 +80,4 @@ function CategoryCreateForm() {
   )
 }
 
-export default CategoryCreateForm
+export default CategoryCreateForm;

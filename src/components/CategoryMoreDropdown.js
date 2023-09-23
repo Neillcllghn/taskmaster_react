@@ -1,6 +1,6 @@
 import React from "react";
-import Dropdown from 'react-bootstrap/Dropdown'
-import styles from "../styles/CategoryMoreDropdown.module.css"
+import Dropdown from 'react-bootstrap/Dropdown';
+import styles from "../styles/CategoryMoreDropdown.module.css";
 import CategoryDeleteModal from "./CategoryDeleteModal";
 
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (

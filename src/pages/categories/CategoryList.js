@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
-import { useParams } from 'react-router-dom/cjs/react-router-dom.min'
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosReq } from '../../api/axiosDefaults';
 import Categories from './Categories';
 import { useRedirect } from '../../hooks/useRedirect';
 
 
 function CategoryList() {
-    useRedirect('loggedOut')
+    useRedirect('loggedOut');
     const { id } = useParams();
     const [category, setCategory] = useState({ results: [] });
 
@@ -18,8 +18,8 @@ function CategoryList() {
             try {
                 const [{data: category}] = await Promise.all([
                     axiosReq.get(`/category/${id}`)
-                ])
-                setCategory({results: [category]})
+                ]);
+                setCategory({results: [category]});
             } catch(err) {
                 // console.log(err)
             }
@@ -38,4 +38,4 @@ function CategoryList() {
   )
 }
 
-export default CategoryList
+export default CategoryList;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Media from 'react-bootstrap/Media';
 import { useCurrentUser } from '../../context/CurrentUserContext';
@@ -22,8 +22,8 @@ const Categories = (props) => {
     const history = useHistory();
 
     const handleEdit = () => {
-        history.push(`/category/${id}/edit`)
-    }
+        history.push(`/category/${id}/edit`);
+    };
 
     if (!is_owner) {
         return null;
@@ -50,4 +50,4 @@ const Categories = (props) => {
       )
     };
     
-    export default Categories
+    export default Categories;

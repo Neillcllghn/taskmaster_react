@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Media from 'react-bootstrap/Media';
@@ -20,7 +20,7 @@ function TaskItem({ id, task, profile_id, profile_image, owner }) {
 
     const handleEdit = () => {
         history.push(`/tasks/${id}/edit`);
-    }
+    };
 
     if (!is_owner) {
         return null;

@@ -6,7 +6,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Alert  from "react-bootstrap/Alert";
 
-import styles from "../../styles/TaskCreateEditForm.module.css"
+import styles from "../../styles/TaskCreateEditForm.module.css";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
@@ -15,7 +15,7 @@ import { useRedirect } from "../../hooks/useRedirect";
 
 
 function TaskCreateForm() {
-    useRedirect('loggedOut')
+    useRedirect('loggedOut');
 
   const [errors, setErrors] = useState({});
 
@@ -28,7 +28,7 @@ function TaskCreateForm() {
     completed: false,
   });
 
-  const [categoryData, setCategoryData] = useState({ results: [] })
+  const [categoryData, setCategoryData] = useState({ results: [] });
 
   const { title, category, description, is_urgent, due_date, completed } = taskData;
   const history = useHistory();
@@ -83,15 +83,15 @@ const handleChange = (event) => {
     try{
         // eslint-disable-next-line
         const {data} =  await axiosReq.post('/tasks/', formData);
-        history.push(`/tasklist`)
+        history.push(`/tasklist`);
     } catch (err){
         // console.log(err)
         if (err.response?.status !== 401){
-            setErrors(err.response?.data)
+            setErrors(err.response?.data);
         }
 
     }
-}
+};
 
 useEffect(() => {
     const fetchCategories = async () => {
@@ -100,9 +100,9 @@ useEffect(() => {
             const userCategories = response.data.results.filter(categoryItem => categoryItem.is_owner);
             setCategoryData({ results: userCategories });
         } catch(err) {
-            console.log(err)
+            // console.log(err);
         }
-    }
+    };
     fetchCategories();
 }, []);
 

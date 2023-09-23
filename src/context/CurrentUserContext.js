@@ -17,14 +17,14 @@ export const CurrentUserProvider = ({children}) => {
     const handleMount = async () => {
         try {
             const {data} = await axiosRes.get('dj-rest-auth/user/')
-            setCurrentUser(data)
+            setCurrentUser(data);
         } catch(err){
             // console.log(err)
         }
     };
 
     useEffect(() => {
-        handleMount()
+        handleMount();
     }, []);
 
 
@@ -41,7 +41,7 @@ export const CurrentUserProvider = ({children}) => {
                             }
                             return null;
                         });
-                        removeTokenTimestamp()
+                        removeTokenTimestamp();
                         return config;
                     }
                 }
@@ -51,7 +51,7 @@ export const CurrentUserProvider = ({children}) => {
             (err) => {
                 return Promise.reject(err);
             }
-        )
+        );
 
 
 
@@ -60,21 +60,21 @@ export const CurrentUserProvider = ({children}) => {
             async (err) => {
                 if (err.response?.status === 401){
                     try{
-                        await axios.post('/dj-rest-auth/token/refresh/')
+                        await axios.post('/dj-rest-auth/token/refresh/');
                     } catch(err){
                         setCurrentUser(prevCurrentUser => {
                             if (prevCurrentUser){
-                                history.push('/login')
+                                history.push('/login');
                             }
-                            return null
+                            return null;
                         });
-                        removeTokenTimestamp()
+                        removeTokenTimestamp();
                     }
-                    return axios(err.config)
+                    return axios(err.config);
                 }
-                return Promise.reject(err)   
+                return Promise.reject(err) ;  
             }
-        )
+        );
     }, [history]);
 
     return(

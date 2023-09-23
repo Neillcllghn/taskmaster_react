@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import Button from 'react-bootstrap/Button'
-import Modal from 'react-bootstrap/Modal'
+import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosRes } from '../api/axiosDefaults';
 
@@ -9,7 +9,7 @@ function TaskDeleteModal({id}) {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const history = useHistory()
+    const history = useHistory();
 
     const handleDelete = async () => {
         try {

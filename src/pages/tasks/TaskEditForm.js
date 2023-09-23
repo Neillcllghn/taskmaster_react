@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef } from 'react';
 import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -7,10 +7,10 @@ import Row from 'react-bootstrap/Row';
 import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from '../../hooks/useRedirect';
-import styles from "../../styles/TaskCreateEditForm.module.css"
+import styles from "../../styles/TaskCreateEditForm.module.css";
 
 function TaskEditForm() {
-    useRedirect('loggedOut')
+    useRedirect('loggedOut');
     const [errors, setErrors] = useState({});
 
     const [taskData, setTaskData] = useState({
@@ -22,7 +22,7 @@ function TaskEditForm() {
         completed: false,
       });
 
-      const [categoryData, setCategoryData] = useState({ results: [] })
+      const [categoryData, setCategoryData] = useState({ results: [] });
 
       const { title, category, description, is_urgent, due_date, completed } = taskData;
       const history = useHistory();
@@ -45,10 +45,10 @@ function TaskEditForm() {
             } catch(err) {
                 // console.log(err);
 
-            };
+            }
         };
         handleMount();
-    }, [history, id])
+    }, [history, id]);
 
 
       const handleChange = (event) => {
@@ -113,15 +113,15 @@ function TaskEditForm() {
             const searchParams = new URLSearchParams();
             searchParams.set('success', successMessage);
             sessionStorage.setItem('successMessage', successMessage);
-            history.push(`/tasklist/?${searchParams.toString()}`)
+            history.push(`/tasklist/?${searchParams.toString()}`);
         } catch (err){
             // console.log(err)
             if (err.response?.status !== 401){
-                setErrors(err.response?.data)
+                setErrors(err.response?.data);
             }
     
         }
-    }
+    };
     
 
   return (

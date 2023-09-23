@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import Alert  from 'react-bootstrap/Alert';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
@@ -10,7 +10,7 @@ function SuccessMessages() {
     const [displayedSuccessMessage, setDisplayedSuccessMessage] = useState('');
 
     useEffect(() => {
-        const storedSuccessMessage = sessionStorage.getItem('successMessage')
+        const storedSuccessMessage = sessionStorage.getItem('successMessage');
         if (successMessage || storedSuccessMessage) {
             const message = successMessage || storedSuccessMessage;
             setDisplayedSuccessMessage(message);

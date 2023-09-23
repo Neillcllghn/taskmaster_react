@@ -1,8 +1,8 @@
-import React from 'react'
-import styles from '../styles/NavBar.module.css'
-import Navbar from 'react-bootstrap/Navbar'
-import Container from 'react-bootstrap/Container'
-import Nav from 'react-bootstrap/Nav'
+import React from 'react';
+import styles from '../styles/NavBar.module.css';
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
 import { NavLink } from "react-router-dom";
 import { useCurrentUser, useSetCurrentUser } from '../context/CurrentUserContext';
 import Avatar from "./Avatar";

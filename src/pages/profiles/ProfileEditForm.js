@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
@@ -16,7 +16,7 @@ import { useRedirect } from '../../hooks/useRedirect';
 
 
 function ProfileEditForm() {
-    useRedirect('loggedOut')
+    useRedirect('loggedOut');
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
     const {id} = useParams();
@@ -47,7 +47,7 @@ function ProfileEditForm() {
             } else {
                 history.push("/");
               }
-        }
+        };
         handleMount();
     }, [currentUser, history, id]);
 
@@ -57,7 +57,7 @@ function ProfileEditForm() {
             ...userProfileData,
             [event.target.name]: event.target.value,
         })
-    }
+    };
 
     
     const handleSubmit = async (event) => {

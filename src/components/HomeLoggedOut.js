@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import appStyles from "../App.module.css";
-import styles from "../styles/HomeLoggedInOut.module.css"
+import styles from "../styles/HomeLoggedInOut.module.css";
 
 const HomeLoggedOut = () => {
 

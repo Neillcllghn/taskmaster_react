@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { useCurrentUser } from '../../context/CurrentUserContext'
+import React, { useEffect, useState } from 'react';
+import { useCurrentUser } from '../../context/CurrentUserContext';
 import { useUserProfile } from "../../context/UserProfileContext";
 import HomeLoggedOut from '../../components/HomeLoggedOut';
 import HomeLoggedIn from '../../components/HomeLoggedIn';
@@ -49,4 +49,4 @@ const HomePage = () => {
     );
 }
 
-export default HomePage
+export default HomePage;

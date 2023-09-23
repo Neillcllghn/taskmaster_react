@@ -20,7 +20,7 @@ import UserPasswordForm from "./UserPasswordForm";
 import { useRedirect } from '../../hooks/useRedirect';
 
 function ProfilePage() {
-    useRedirect('loggedOut')
+    useRedirect('loggedOut');
     const [hasLoaded, setHasLoaded] = useState(false);
     const {id} = useParams();
     const { setUserProfile } = useUserProfile();
@@ -33,41 +33,41 @@ function ProfilePage() {
             try {
                 const [{data: userProfile}] = await Promise.all([
                     axiosReq.get(`/profiles/${id}/`)
-                ])
+                ]);
                 setUserProfile(userProfile);
                 setHasLoaded(true);
             } catch(err){
                 // console.log("Fetching failed:", err)
             }
-        }
+        };
         fetchData();
-      }, [id, setUserProfile])
+      }, [id, setUserProfile]);
     
       const userProfile = useUserProfile().userProfile;
       
       const handleEditProfileClick = () => {
         setShowProfileEditForm(true);
-      }
+      };
     
       const handleCancelEdit = () => {
         setShowProfileEditForm(false);
-      }
+      };
 
       const handleUsernameFormClick = () => {
         setShowUsernameForm(true);
-      }
+      };
     
       const handleCloseUsernameForm = () => {
         setShowUsernameForm(false);
-      }
+      };
 
       const handleUserPasswordFormClick = () => {
         setShowUserPasswordForm(true);
-      }
+      };
     
       const handleCloseUserPasswordForm = () => {
         setShowUserPasswordForm(false);
-      }
+      };
 
       const mainProfile = (
         <>
@@ -143,5 +143,5 @@ function ProfilePage() {
       );
     }
 
-    export default ProfilePage
+    export default ProfilePage;
 

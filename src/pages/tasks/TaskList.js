@@ -3,16 +3,16 @@ import { axiosReq } from '../../api/axiosDefaults';
 import TaskItem from './TaskItem';
 import Container from 'react-bootstrap/Container';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
-import appStyles from "../../App.module.css"
+import appStyles from "../../App.module.css";
 import Asset from '../../components/Assets';
 import TaskSearchBar from '../../components/TaskSearchBar';
 import SuccessMessages from '../../components/SuccessMessages';
-import styles from '../../styles/TaskList.module.css'
+import styles from '../../styles/TaskList.module.css';
 import { useRedirect } from '../../hooks/useRedirect';
 
 
 function TaskList({message, filter=""}) {
-    useRedirect('loggedOut')
+    useRedirect('loggedOut');
     const [tasks, setTasks] = useState([]);
     const [showCompleted, setShowCompleted] = useState(false);
     const [hasLoaded, setHasLoaded] = useState(false);
@@ -61,7 +61,7 @@ function TaskList({message, filter=""}) {
         const isNonCompleted = showNonCompleted ? !task.completed : true;
 
         return isUrgent && isCompleted && isNonCompleted;
-      })
+      });
 
   return (
     <div>

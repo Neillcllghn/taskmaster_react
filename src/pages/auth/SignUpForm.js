@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
 import styles from "../../styles/SignInUpForm.module.css";
@@ -25,9 +25,9 @@ const SignUpForm = () => {
 
     const { username, password1, password2 } = signUpData;
 
-    const [errors, setErrors] = useState({})
+    const [errors, setErrors] = useState({});
 
-    const history = useHistory()
+    const history = useHistory();
 
     const handleChange = (event) => {
         setSignUpData({
@@ -39,10 +39,10 @@ const SignUpForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try{
-            await axios.post('/dj-rest-auth/registration/', signUpData)
-            history.push('/login')
+            await axios.post('/dj-rest-auth/registration/', signUpData);
+            history.push('/login');
         } catch(err){
-            setErrors(err.response?.data)
+            setErrors(err.response?.data);
         }
     };
 

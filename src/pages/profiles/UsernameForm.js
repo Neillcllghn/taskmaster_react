@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
@@ -12,12 +12,12 @@ import appStyles from "../../App.module.css";
 import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useCurrentUser, useSetCurrentUser } from '../../context/CurrentUserContext';
 import { axiosRes } from '../../api/axiosDefaults';
-import styles from '../../styles/UsernamePasswordForm.module.css'
+import styles from '../../styles/UsernamePasswordForm.module.css';
 import { useRedirect } from '../../hooks/useRedirect';
 
 
 function UsernameForm() {
-    useRedirect('loggedOut')
+    useRedirect('loggedOut');
     const [username, setUsername] = useState("");
     const [errors, setErrors] = useState({});
     const history = useHistory();
@@ -32,7 +32,7 @@ function UsernameForm() {
         } else {
             history.push("/");
         }
-    }, [currentUser, history, id])
+    }, [currentUser, history, id]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -48,7 +48,7 @@ function UsernameForm() {
             // console.log(err);
             setErrors(err.response?.data);
         }
-    }
+    };
 
 
   return (
