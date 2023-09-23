@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form } from 'react-bootstrap';
+import Form  from 'react-bootstrap/Form';
 import styles from '../styles/TaskList.module.css'
 
 function TaskSearchBar({query, onQueryChange}) {

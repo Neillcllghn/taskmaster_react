@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Alert } from 'react-bootstrap';
+import Alert  from 'react-bootstrap/Alert';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 

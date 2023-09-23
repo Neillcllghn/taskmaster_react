@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Modal, Button } from 'react-bootstrap'
+import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button'
 import { axiosRes } from '../api/axiosDefaults';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 

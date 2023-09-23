@@ -1,5 +1,7 @@
 import React from 'react'
-import { Button, Card, Media } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Media from 'react-bootstrap/Media';
 import { useCurrentUser } from '../../context/CurrentUserContext';
 import { Link } from "react-router-dom";
 import Avatar from '../../components/Avatar';

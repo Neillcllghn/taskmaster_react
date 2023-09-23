@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { axiosReq } from '../../api/axiosDefaults';
 import TaskItem from './TaskItem';
-import { Container } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 import appStyles from "../../App.module.css"
 import Asset from '../../components/Assets';

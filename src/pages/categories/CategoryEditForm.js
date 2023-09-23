@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Alert, Button, Container, Form, Row } from 'react-bootstrap';
+import Alert from 'react-bootstrap/Alert';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
 import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from '../../hooks/useRedirect';
