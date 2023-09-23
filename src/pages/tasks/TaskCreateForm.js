@@ -150,7 +150,7 @@ useEffect(() => {
         <Form.Group>
             <Form.Label className={styles.Header}>Task Description</Form.Label>
             <Form.Control
-            as="textarea" 
+            type="text"
             placeholder="Enter Task description" 
             name ="description"
             value={description}
