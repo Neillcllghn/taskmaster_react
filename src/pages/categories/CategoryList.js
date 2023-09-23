@@ -5,9 +5,11 @@ import { Row } from 'react-bootstrap'
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min'
 import { axiosReq } from '../../api/axiosDefaults';
 import Categories from './Categories';
+import { useRedirect } from '../../hooks/useRedirect';
 
 
 function CategoryList() {
+    useRedirect('loggedOut')
     const { id } = useParams();
     const [category, setCategory] = useState({ results: [] });
 

@@ -2,9 +2,11 @@ import React, { useEffect, useState, useRef } from 'react'
 import { Alert, Button, Container, Form, Row } from 'react-bootstrap';
 import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosReq } from "../../api/axiosDefaults";
+import { useRedirect } from '../../hooks/useRedirect';
 import styles from "../../styles/TaskCreateEditForm.module.css"
 
 function TaskEditForm() {
+    useRedirect('loggedOut')
     const [errors, setErrors] = useState({});
 
     const [taskData, setTaskData] = useState({

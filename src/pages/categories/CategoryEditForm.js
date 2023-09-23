@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { Alert, Button, Container, Form, Row } from 'react-bootstrap';
 import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosReq } from "../../api/axiosDefaults";
+import { useRedirect } from '../../hooks/useRedirect';
 
 import styles from "../../styles/CategoryCreateEditForm.module.css"
 
 function CategoryEditForm() {
+    useRedirect('loggedOut')
     const [errors, setErrors] = useState({});
 
     const [categoryData, setCategoryData] = useState({

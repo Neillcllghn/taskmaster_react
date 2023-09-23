@@ -8,9 +8,11 @@ import Asset from '../../components/Assets';
 import TaskSearchBar from '../../components/TaskSearchBar';
 import SuccessMessages from '../../components/SuccessMessages';
 import styles from '../../styles/TaskList.module.css'
+import { useRedirect } from '../../hooks/useRedirect';
 
 
 function TaskList({message, filter=""}) {
+    useRedirect('loggedOut')
     const [tasks, setTasks] = useState([]);
     const [showCompleted, setShowCompleted] = useState(false);
     const [hasLoaded, setHasLoaded] = useState(false);

@@ -29,7 +29,7 @@ function App() {
             <Route exact path="/category/create" render={() => <CategoryCreateForm />} />
             <Route exact path="/category/:id" render={() => <CategoryList />} />
             <Route exact path="/category/:id/edit" render={() => <CategoryEditForm />} />
-            <Route exact path="/categorieslist/" render={() => <CategoriesList message="No Results found..."/>} />
+            <Route exact path="/categorieslist" render={() => <CategoriesList message="No Results found..."/>} />
             <Route exact path="/tasks/create" render={() => <TaskCreateForm />} />
             <Route exact path="/tasklist" render={() => <TaskList message="No Results found..."/>} />
             <Route exact path="/tasks/:id/edit" render={() => <TaskEditForm />} />

@@ -9,11 +9,13 @@ import styles from "../../styles/TaskCreateEditForm.module.css"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import { Alert } from "react-bootstrap";
+import { useRedirect } from "../../hooks/useRedirect";
 
 
 
 
 function TaskCreateForm() {
+    useRedirect('loggedOut')
 
   const [errors, setErrors] = useState({});
 
