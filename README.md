@@ -400,7 +400,7 @@ The user will be notifed by error message if the following happens:
 ## Technologies Used
 
 ### Languages Used:
-HTML, CSS, javascript and Python Django (backend) were used to create this website.
+HTML, CSS, javascript and Python Django Rest Framework (backend) were used to create this website.
 
 ### Frameworks, Libraries & Programs Used:
 
