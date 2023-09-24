@@ -482,9 +482,9 @@ To use the `CurrentUserProvider` component in your React application, follow the
 
 2. Wrap your application or a specific part of your application with the `CurrentUserProvider` component:
 
-```<CurrentUserProvider>
-    {/* Your application components */}
-   </CurrentUserProvider>
+`<CurrentUserProvider>
+  {/* Your application components */}
+</CurrentUserProvider>`
   
 
  **Context**
@@ -509,9 +509,9 @@ To use the `UserProfileProvider` component in your React application, follow the
 
 2. Wrap your application or a specific part of your application with the `UserProfileProvider` component:
 
-```<UserProfileProvider>
+`<UserProfileProvider>
   {/* Your application components */}
-</UserProfileProvider>
+</UserProfileProvider>`
   
 
  **Context**
@@ -537,9 +537,11 @@ To use the `useRedirect` hook in your React application, follow these steps:
 
 2. Call the `useRedirect` hook within a component where you want to handle redirects based on user authentication status. Pass the user authentication status as an argument:
 
-```const YourComponent = () => {
+
+`const YourComponent = () => {
   useRedirect(userAuthStatus);
-};
+};`
+
 
 Here, `userAuthStatus` can be one of the following values:
 - `'loggedIn'`: Redirects to the homepage if the user is logged in.
@@ -560,11 +562,12 @@ To use the `useClickOutsideToggle` hook in your React application, follow these 
    import useClickOutsideToggle from './hooks/useClickOutsideToggle';
 
 2. Call the `useClickOutsideToggle` hook within a component where you want to handle click events outside of a specific element. The hook returns an object containing state variables and a ref:
-const YourComponent = () => {
+
+`const YourComponent = () => {
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
   // ...
-};
+};`
 
 - expanded: A boolean value representing the current toggle state.
 - setExpanded: A function to programmatically set the toggle state.
