@@ -425,6 +425,8 @@ Here are the available props for the NavBar component:
 - expanded (optional): Control whether the navigation menu is expanded.
 - ref (optional): A reference for handling click outside the menu.
 
+- - -
+
 #### Asset Component
 
 The `Asset` component is a reusable component for displaying assets like images or spinners with optional messages (Inspired by the CI walkthrough project: Moments).
@@ -445,6 +447,7 @@ Here are the available props for the `Asset` component:
 - src (optional): Provide the image source URL.
 - message (optional): Display a message below the asset.
 
+- - -
 
 #### Avatar Component
 
@@ -466,8 +469,9 @@ Here are the available props for the `Asset` component:
 - height (optional): Specify the height of the avatar (default is 45 pixels).
 - text (optional): Provide additional text to display alongside the avatar.
 
+- - -
 
-#### CurrentUserProvider Component
+#### CurrentUserProvider Context
 
 The `CurrentUserProvider` component is a reusable component that provides a context for managing the current user's state and handling authentication-related actions (Inspired by the CI walkthrough project: Moments).
 
@@ -493,8 +497,9 @@ The `CurrentUserProvider` component provides two contexts:
 - CurrentUserContext: This context contains information about the current user.
 - SetCurrentUserContext: This context provides a function to set the current user.
 
+- - -
 
-#### UserProfileProvider Component
+#### UserProfileProvider Context
 
 The `UserProfileProvider` component is a reusable component that provides a context for managing user profile information based on the current user.
 
@@ -520,7 +525,8 @@ The `UserProfileProvider` component provides a context named `UserProfileContext
 - userProfile: The user's profile information.
 - setUserProfile: A function to set the user's profile information.
 - By using this context, you can access and manage user profile data within your application.
-- 
+
+- - -
 
 #### useRedirect Hook
 
@@ -547,6 +553,7 @@ Here, `userAuthStatus` can be one of the following values:
 - `'loggedIn'`: Redirects to the homepage if the user is logged in.
 - `'loggedOut'`: Redirects to the homepage if the user is logged out.
 
+- - -
 
 #### useClickOutsideToggle Hook
 
@@ -565,8 +572,6 @@ To use the `useClickOutsideToggle` hook in your React application, follow these 
 
 `const YourComponent = () => {
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
-
-  // ...
 };`
 
 - expanded: A boolean value representing the current toggle state.
