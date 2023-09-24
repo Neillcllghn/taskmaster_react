@@ -11,7 +11,6 @@
   * [Full Testing](#full-testing)
 * [BUGS](#bugs)
   * [Solved Bugs](#solved-bugs)
-  * [Known Bugs](#known-bugs)
 
 Testing was ongoing throughout the entire build. During development I made use of Google Chrome Developer Tools and ChatGBT to ensure everything was working correctly and to assist with troubleshooting when things were not working as expected.
 
