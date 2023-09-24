@@ -46,6 +46,7 @@ I used the Responsive Viewer chrome extenstion to test the responsiveness on eac
   * [General Features on Each Page](#general-features-on-each-page)
   * [Future Implementations](#future-implementations)
   * [Accessibility](#accessibility)
+  * [React-Reusable Components](#react-reusable-Components)
 
 * [Technologies Used](#technologies-used)
   * [Languages Used](#languages-used)
@@ -394,6 +395,180 @@ The user will be notifed by error message if the following happens:
 - Using descriptive alt attributes on images on the site.
 - Providing information for screen readers where there are icons used and no text - such as the icons beside each menu section & footer icons.
 - Ensuring that there is a sufficient colour contrast throughout the site.
+
+- - -
+
+### React-Reusable Components
+
+Reusable components which allows you to customise components and can be easily installed through npm.
+
+In the below - I will highlight the main components and hooks:
+
+#### NavBar Component
+
+The `NavBar` component provides a navigation bar for your application. It includes links for various routes and can be customized with user-specific actions (Inspired by the CI walkthrough project: Moments).
+
+**Usage**
+
+To use the `NavBar` component in your React application, follow these steps:
+
+1. Import the `NavBar` component at the top of your JavaScript or JSX file:
+
+   ```javascript
+   import NavBar from './components/NavBar';
+
+**Props**
+Here are the available props for the NavBar component:
+
+- currentUser (optional): The current user object.
+- setCurrentUser (optional): A function to handle user actions.
+- expanded (optional): Control whether the navigation menu is expanded.
+- ref (optional): A reference for handling click outside the menu.
+
+#### Asset Component
+
+The `Asset` component is a reusable component for displaying assets like images or spinners with optional messages (Inspired by the CI walkthrough project: Moments).
+
+**Usage**
+
+To use the `Asset` component in your React application, follow these steps:
+
+1. Import the `Asset` component at the top of your JavaScript or JSX file:
+
+   ```javascript
+   import Asset from './components/Asset';
+
+ **Props**
+Here are the available props for the `Asset` component:
+
+- spinner (optional): Set to true to display a spinner animation.
+- src (optional): Provide the image source URL.
+- message (optional): Display a message below the asset.
+
+
+#### Avatar Component
+
+The `Avatar` component is a reusable component for displaying user avatars with optional text (Inspired by the CI walkthrough project: Moments).
+
+**Usage**
+
+To use the `Avatar` component in your React application, follow these steps:
+
+1. Import the `Avatar` component at the top of your JavaScript or JSX file:
+
+   ```javascript
+   import Avatar from './components/Avatar';
+
+ **Props**
+Here are the available props for the `Asset` component:
+
+- src: Provide the image source URL for the avatar.
+- height (optional): Specify the height of the avatar (default is 45 pixels).
+- text (optional): Provide additional text to display alongside the avatar.
+
+
+#### CurrentUserProvider Component
+
+The `CurrentUserProvider` component is a reusable component that provides a context for managing the current user's state and handling authentication-related actions (Inspired by the CI walkthrough project: Moments).
+
+**Usage**
+
+To use the `CurrentUserProvider` component in your React application, follow these steps:
+
+1. Import the `CurrentUserProvider` component at the top of your JavaScript or JSX file:
+
+   ```javascript
+   import { CurrentUserProvider } from './context/CurrentUserProvider';
+
+2. Wrap your application or a specific part of your application with the `CurrentUserProvider` component:
+
+<CurrentUserProvider>
+  {/* Your application components */}
+</CurrentUserProvider>
+  
+
+ **Context**
+The `CurrentUserProvider` component provides two contexts:
+
+- CurrentUserContext: This context contains information about the current user.
+- SetCurrentUserContext: This context provides a function to set the current user.
+
+
+#### UserProfileProvider Component
+
+The `UserProfileProvider` component is a reusable component that provides a context for managing user profile information based on the current user.
+
+**Usage**
+
+To use the `UserProfileProvider` component in your React application, follow these steps:
+
+1. Import the `UserProfileProvider` component at the top of your JavaScript or JSX file:
+
+   ```javascript
+   import { UserProfileProvider } from './context/UserProfileProvider';
+
+2. Wrap your application or a specific part of your application with the `UserProfileProvider` component:
+
+<UserProfileProvider>
+  {/* Your application components */}
+</UserProfileProvider>
+  
+
+ **Context**
+The `UserProfileProvider` component provides a context named `UserProfileContext`, which includes the following:
+
+- userProfile: The user's profile information.
+- setUserProfile: A function to set the user's profile information.
+- By using this context, you can access and manage user profile data within your application.
+- 
+
+#### useRedirect Hook
+
+The `useRedirect` hook is a custom hook that enables redirection based on user authentication status. It's a versatile utility to handle user authentication redirects within your React application (Inspired by the CI walkthrough project: Moments).
+
+**Usage**
+
+To use the `useRedirect` hook in your React application, follow these steps:
+
+1. Import the `useRedirect` hook at the top of your JavaScript or JSX file:
+
+   ```javascript
+   import { useRedirect } from './hooks/useRedirect';
+
+2. Call the `useRedirect` hook within a component where you want to handle redirects based on user authentication status. Pass the user authentication status as an argument:
+const YourComponent = () => {
+  useRedirect(userAuthStatus);
+};
+
+Here, `userAuthStatus` can be one of the following values:
+- `'loggedIn'`: Redirects to the homepage if the user is logged in.
+- `'loggedOut'`: Redirects to the homepage if the user is logged out.
+
+
+#### useClickOutsideToggle Hook
+
+The `useClickOutsideToggle` hook is a custom hook designed to manage the toggling of a component when a click event occurs outside of it. It's useful for creating components that should expand or collapse when clicking outside of their boundaries, namely the Navigation Bar when the toggle (burger icon) appears on smaller screens (Inspired by the CI walkthrough project: Moments).
+
+**Usage**
+
+To use the `useClickOutsideToggle` hook in your React application, follow these steps:
+
+1. Import the `useClickOutsideToggle` hook at the top of your JavaScript or JSX file:
+
+   ```javascript
+   import useClickOutsideToggle from './hooks/useClickOutsideToggle';
+
+2. Call the `useClickOutsideToggle` hook within a component where you want to handle click events outside of a specific element. The hook returns an object containing state variables and a ref:
+const YourComponent = () => {
+  const { expanded, setExpanded, ref } = useClickOutsideToggle();
+
+  // ...
+};
+
+- expanded: A boolean value representing the current toggle state.
+- setExpanded: A function to programmatically set the toggle state.
+- ref: A ref that should be assigned to the element you want to monitor for click events.
+
 
 - - -
 
