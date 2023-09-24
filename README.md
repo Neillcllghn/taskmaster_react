@@ -478,9 +478,12 @@ Please see [TESTING.md](https://github.com/Neillcllghn/taskmaster_react/blob/mai
 
 ### Code Used:
 
-1. The code used in project (with regards the TaskList edit and delete buttons) was in part inspired by what was from the Youtube video titled: [Part 2 Frontend Design I Task Manager App with React (JS) + Django (Python)](https://www.youtube.com/watch?v=Hc-sRIGWJY8)
+1. The code used in project (with regards the TaskList edit and delete buttons) was in part inspired by what was from the Youtube video titled: [Part 2 Frontend Design I Task Manager App with React (JS) + Django (Python)](https://www.youtube.com/watch?v=Hc-sRIGWJY8).
 
 2. The various leactures and notes - Code Institute walkthrough project React Frontend Walkthrough on the Moments was of great benefit and was the foundation for this project.
+
+3. The button design and boarder for both the Task and Categories forms were influenced by the [Styling React Forms with CSS](https://javascript.plainenglish.io/css-learn-to-style-react-forms-with-css-2ce72c67c66f).
+
 
 ### Content:
 
