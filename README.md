@@ -482,9 +482,9 @@ To use the `CurrentUserProvider` component in your React application, follow the
 
 2. Wrap your application or a specific part of your application with the `CurrentUserProvider` component:
 
-<CurrentUserProvider>
-  {/* Your application components */}
-</CurrentUserProvider>
+```<CurrentUserProvider>
+    {/* Your application components */}
+   </CurrentUserProvider>
   
 
  **Context**
@@ -509,7 +509,7 @@ To use the `UserProfileProvider` component in your React application, follow the
 
 2. Wrap your application or a specific part of your application with the `UserProfileProvider` component:
 
-<UserProfileProvider>
+```<UserProfileProvider>
   {/* Your application components */}
 </UserProfileProvider>
   
@@ -536,7 +536,8 @@ To use the `useRedirect` hook in your React application, follow these steps:
    import { useRedirect } from './hooks/useRedirect';
 
 2. Call the `useRedirect` hook within a component where you want to handle redirects based on user authentication status. Pass the user authentication status as an argument:
-const YourComponent = () => {
+
+```const YourComponent = () => {
   useRedirect(userAuthStatus);
 };
 
