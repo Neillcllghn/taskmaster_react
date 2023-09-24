@@ -20,4 +20,8 @@
     background-color: #fff;
 }
 
-
+@media (max-width: 1200px) {
+    .NavLink {
+      font-size: 13px;
+    }
+  }
